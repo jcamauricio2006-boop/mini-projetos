@@ -18,7 +18,7 @@ N[\valor1*valor2\]
 O[\valor1/valor2\]
 P{valor2 = 0}
 R[\resultado\]
-S[/operador != +,-,/,*/]
+S[/operador != +,-,/,X/]
 T[/operador/]
 
 A--> C
