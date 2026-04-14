@@ -5,11 +5,11 @@ A([inicio])
 C[/valor1/]
 D[/Valor2/]
 B([fim])
-E{Operador = +,-,/,x}
-F[/soma/]
-G[/subtração/]
-H[/divisão/]
-I[/multiplicação/]
+E{Operador ou OP = +,-,/,x}
+F[/OP =+/]
+G[/OP =-/]
+H[/OP =//]
+I[/OP =x/]
 J[\operação Invalida\]
 K[\vazio\]
 L[\valor1+valor2\]
