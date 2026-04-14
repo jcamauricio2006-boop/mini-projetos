@@ -1,0 +1,48 @@
+# Fluxograma
+```mermaid
+graph TD
+A([inicio])
+C[/valor1/]
+D[/Valor2/]
+B([fim])
+E{Operador = +,-,/,x}
+F[/soma/]
+G[/subtração/]
+H[/divisão/]
+I[/multiplicação/]
+J[\operação Invalida\]
+K[\vazio\]
+L[\valor1+valor2\]
+M[\valor1-valor2\]
+N[\valor1*valor2\]
+O[\valor1/valor2\]
+P{valor2 = 0}
+R[\resultado\]
+S[/operador != +,-,/,*/]
+T[/operador/]
+
+A--> C
+A--> D
+E--> F
+E --> G
+E--> H
+E --> I
+F--> L
+G-->M
+H-->O
+O-->P
+P --false--> K
+I-->N
+L --> R
+M -->R
+N--> R
+P --true --> R
+E --> S
+S--> J
+C--> T
+D--> T
+R--> B
+T-->E
+K-->B
+J-->B
+```
