@@ -36,7 +36,7 @@ I-->N
 L --> R
 M -->R
 N--> R
-P --true --> R
+P --> R
 E --> S
 S--> J
 C--> T
