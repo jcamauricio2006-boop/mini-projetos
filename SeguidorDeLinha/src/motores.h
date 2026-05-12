@@ -5,10 +5,15 @@
 #define EN2  23
 #define EN3  25
 #define EN4  26
+int valor_pwm;
+int dif;
 
 void frente();
 void atras();
 void esquerda();
 void direita();
+void parar();
+void direitaT();
+void esquerdaT();
 
 #endif
