@@ -11,69 +11,47 @@ int dif;
 // Direções ====================================================================
 void frente(){
 //Relacionando o valor PWM com as variáveis dos motores=========================
-   for (valor_pwm = 0; valor_pwm < 255 ; valor_pwm++){
-        analogWrite(EN1, valor_pwm); 
-        analogWrite(EN3, valor_pwm); 
-        analogWrite(EN2, 0);         
-        analogWrite(EN4, 0);   
-        delay(10);
-   }
+    analogWrite(EN1, valor_pwm); 
+    analogWrite(EN3, valor_pwm); 
+    analogWrite(EN2, 0);         
+    analogWrite(EN4, 0);   
 }
 void atras() {
-    for (valor_pwm = 0 ; valor_pwm < 255; valor_pwm++){
-        analogWrite(EN2, valor_pwm);
-        analogWrite(EN4, valor_pwm);
-        analogWrite(EN1, 0);
-        analogWrite(EN3, 0);
-        delay(10);
-    }
+    analogWrite(EN2, valor_pwm);
+    analogWrite(EN4, valor_pwm);
+    analogWrite(EN1, 0);
+    analogWrite(EN3, 0);
 }
 // OBS temp -  tenho que ver com mais cautela o diferencial na hora de virar o carrinho.
 void esquerda() {
-    for (valor_pwm = 0 ; valor_pwm < 255; valor_pwm++){
-        dif = (int)(valor_pwm*0.6);
-        analogWrite(EN3, valor_pwm); 
-        analogWrite(EN1, dif);
-        analogWrite(EN2, 0);
-        analogWrite(EN4, 0);
-        delay(10);
-    }
+    dif = (int)(valor_pwm*0.6);
+    analogWrite(EN3, valor_pwm); 
+    analogWrite(EN1, dif);
+    analogWrite(EN2, 0);
+    analogWrite(EN4, 0);
 }
 
 void direita() {
-    for (valor_pwm = 0 ; valor_pwm < 255; valor_pwm++){
-        dif = (int)(valor_pwm*0.6);
-        analogWrite(EN1, valor_pwm); 
-        analogWrite(EN3, dif);         
-        analogWrite(EN2, 0);
-        analogWrite(EN4, 0);
-        delay(10);
-    }
+    dif = (int)(valor_pwm*0.6);
+    analogWrite(EN1, valor_pwm); 
+    analogWrite(EN3, dif);         
+    analogWrite(EN2, 0);
+    analogWrite(EN4, 0);
 }
 void parar() {
-    for (valor_pwm= 255; valor_pwm >= 255; valor_pwm--){
-        analogWrite(EN1, valor_pwm);
-        analogWrite(EN2, valor_pwm);
-        analogWrite(EN3, valor_pwm);
-        analogWrite(EN4, valor_pwm);
-        delay(10);
-    } 
+    analogWrite(EN1, 255);
+    analogWrite(EN2, 255);
+    analogWrite(EN3, 255);
+    analogWrite(EN4, 255);
 }
-// direções extremas ============================================
-void esquerdaT() {
+// função somente para calibrar os sensores
+void girar() {
     for (valor_pwm = 0; valor_pwm <255; valor_pwm++){
         analogWrite(EN1, valor_pwm);
         analogWrite(EN2, 0);
         analogWrite(EN3, 0);
-        analogWrite(EN4, 0);
-    }
-}
-void direitaT() {
-    for (valor_pwm = 0; valor_pwm <255; valor_pwm++){
-        analogWrite(EN1, 0);
-        analogWrite(EN2, 0);
-        analogWrite(EN3, valor_pwm);
-        analogWrite(EN4, 0);
+        analogWrite(EN4, valor_pwm);
+        delay(10);
     }
 }
 /*
