@@ -14,9 +14,6 @@ uint8_t pinosSensor[NUM_SENSORES] = {13,14,27,26,25,33,32,35};
 const uint8_t  PINO_EMISSOR = 14;
 const uint8_t  PINO_LED_CAL = 2;
 const int32_t ZONA_MORTA = 150;
-// PWM dos motores ===========================================================
-int valor_pwm = 0;
-int dif; 
 // ===========================================================================
 void setup() {
     Serial.begin(115200);
@@ -37,9 +34,9 @@ void setup() {
     for (uint16_t i = 0; i < 250; i++) {
         qtr.calibrate();
         delay(10);
-        // Na hora da competição ele calibrará indo para esquerda, assim nao precisando de ajuda manual.
-        esquerdaT();
     }
+// Na hora da competição ele calibrará indo para esquerda, assim nao precisando de ajuda manual.
+    girar();
 //calibração concluida ===========================================
     Serial.println("Calibração concluida");
     digitalWrite(PINO_LED_CAL, LOW);
@@ -47,6 +44,10 @@ void setup() {
 }
 void loop() {
 // leitura da linha preta ===================================================
+    if (valor_pwm < 255){
+        valor_pwm++;
+        delay(5);
+    }
     uint16_t posicaoBruta = qtr.readLineBlack(leitura);
     int32_t erro = map(posicaoBruta, 0, 7000, 3500, -3500);
     erro = constrain(erro, -3500, 3500);
@@ -54,12 +55,12 @@ void loop() {
         erro = 0;
     }
     for (uint8_t i = 0; i < NUM_SENSORES; i++) {
+// tabela de cada sensor====================================================
         Serial.print("S");
         Serial.print(i + 1);
         Serial.print(":");
         Serial.print(leitura[i]);
         if (i < NUM_SENSORES - 1) Serial.print(" | ");
-    
     }
  // condições de direção do seguidor de linha =============================
     if (erro == 0){
