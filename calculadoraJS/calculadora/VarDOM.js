@@ -1,16 +1,25 @@
+// simplificação do codigo ===============================================================================================
+function elementoID(b){
+     return document.getElementById(b).addEventListener("click",function(){telaP.innerText+= b})
+}
+// ======================================================================================================================
 const telaP = document.getElementById("telap")
-let Num1 = document.getElementById("1").addEventListener("click", function(){telaP.innerText += "1"})
-let Num2 = document.getElementById("2").addEventListener("click", function(){telaP.innerText += "2"})
-let Num3 = document.getElementById("3").addEventListener("click", function(){telaP.innerText += "3"})
-let Num4 = document.getElementById("4").addEventListener("click", function(){telaP.innerText += "4"})
-let Num5 = document.getElementById("5").addEventListener("click", function(){telaP.innerText += "5"})
-let Num6 = document.getElementById("6").addEventListener("click", function(){telaP.innerText += "6"})
-let Num7 = document.getElementById("7").addEventListener("click", function(){telaP.innerText += "7"})
-let Num8 = document.getElementById("8").addEventListener("click", function(){telaP.innerText += "8"})
-let Num9 = document.getElementById("9").addEventListener("click", function(){telaP.innerText += "9"})
-let Num0 = document.getElementById("0").addEventListener("click", function(){telaP.innerText += "0"})
+let Num1 = elementoID("1")
+let Num2 = elementoID("2")
+let Num3 = elementoID("3")
+let Num4 = elementoID("4")
+let Num5 = elementoID("5")
+let Num6 = elementoID("6")
+let Num7 = elementoID("7")
+let Num8 = elementoID("8")
+let Num9 = elementoID("9")
+let Num0 = elementoID("0")
+// =======================================================================================================================
 let menos = document.getElementById("menos").addEventListener("click", function(){telaP.innerHTML += "-"})
 let mais = document.getElementById("soma").addEventListener("click", function(){telaP.innerHTML += "+"})
 let vezes = document.getElementById("multiplicacao").addEventListener("click", function(){telaP.innerHTML += "*"})
 let dividir = document.getElementById("divisao").addEventListener("click", function(){telaP.innerHTML += "/"})
+// ========================================================================================================================
 let resultado = document.getElementById("igualdade").addEventListener("click", function(){telaP.innerHTML = eval(telaP.textContent);})
+// reset ==================================================================================================================
+let reset = document.getElementById("reset").addEventListener("click",function(){telaP.innerHTML = " "})
